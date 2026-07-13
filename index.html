@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibra Andina | Turismo Vivencial en Junín</title>
+    <style>
+        /* Paleta de Colores Inspirada en el Logo */
+        :root {
+            --naranja-principal: #f39c12;
+            --naranja-oscuro: #d35400;
+            --verde-andino: #27ae60;
+            --oscuro: #2c3e50;
+            --claro: #fcf8f2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: var(--claro);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-placeholder {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--verde-andino);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav a {
+            color: var(--oscuro);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+        }
+
+        /* Sección Hero */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 70vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+
+        .btn {
+            background-color: var(--naranja-principal);
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--naranja-oscuro);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--oscuro);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+        }
+
+        /* Sección Destinos */
+        .grid-destinos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .destino-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--verde-andino);
+            padding: 25px;
+            text-align: center;
+        }
+
+        .destino-card h3 {
+            color: var(--verde-andino);
+            font-size: 1.6rem;
+            margin-top: 0;
+        }
+
+        /* Sección Hojas de Ruta / Paquetes */
+        .grid-paquetes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 500px) {
+            .grid-paquetes { grid-template-columns: 1fr; }
+        }
+
+        .paquete-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid #eef2f3;
+        }
+
+        .paquete-box h3 {
+            background: var(--oscuro);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .paquete-box.premium h3 {
+            background: var(--naranja-oscuro);
+        }
+
+        .timeline {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .timeline-item {
+            margin-bottom: 15px;
+            border-left: 3px solid var(--naranja-principal);
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .timeline-item strong {
+            color: var(--oscuro);
+            display: block;
+        }
+
+        /* Contacto */
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 550px;
+            margin: 0 auto;
+            gap: 15px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        input, textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        footer {
+            background-color: var(--oscuro);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-placeholder">
+            ⛰️ Vibra Andina
+        </div>
+        <nav>
+            <a href="#destinos">Destinos</a>
+            <a href="#paquetes">Hojas de Ruta</a>
+            <a href="#contacto">Reservas</a>
+        </nav>
+    </header>
+
+    <!-- Hero Principal -->
+    <section class="hero">
+        <h1>VIBRA ANDINA</h1>
+        <p>Vive experiencias auténticas, vive la cultura. Explora destinos únicos y descubre un turismo sostenible diseñado para quienes buscan algo más que unas simples vacaciones.</p>
+        <a href="#contacto" class="btn">RESERVA TU VIAJE</a>
+    </section>
+
+    <!-- Sección Destinos -->
+    <section id="destinos" class="container">
+        <h2>Nuestros Destinos</h2>
+        <p class="subtitle">Andes Sostenibles y Turismo Vivencial en la región Junín</p>
+        
+        <div class="grid-destinos">
+            <div class="destino-card">
+                <h3>INGENIO</h3>
+                <p>El mejor lugar para ver naturaleza pura y descanso total. Ideal para caminatas entre campos y desconexión absoluta.</p>
+            </div>
+            <div class="destino-card">
+                <h3>HUAYAO</h3>
+                <p>Escapa de la rutina y disfruta de una aventura única rodeada de cultura, naturaleza y la más cálida hospitalidad local.</p>
+            </div>
+            <div class="destino-card">
+                <h3>CHONGOS ALTO</h3>
+                <p>El destino perfecto para combinar historia, tradiciones ancestrales y naturaleza en familia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Hojas de Ruta -->
+    <section id="paquetes" class="container" style="background-color: #f4edd2; padding: 40px 20px; border-radius: 16px;">
+        <h2>Hojas de Ruta Oficiales</h2>
+        <p class="subtitle">Planes diseñados paso a paso para vivir la esencia de los Andes</p>
+
+        <div class="grid-paquetes">
+            <!-- Paquete Básico -->
+            <div class="paquete-box">
+                <h3>PAQUETE BÁSICO (2 Días / 3 Noches)</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong>Día 1: Llegada a Ingenio</strong>
+                        Caminata de bienvenida por los campos de cultivo y cena con trucha local acompañada de música folclórica andina.
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Día 2: Inmersión en Huayao</strong>
+                        Trekking de 3 horas hacia el mirador de la montaña y participación en un taller interactivo de textiles tradicionales.
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Día 3: Cultura en Chongos Alto & Despedida</strong>
+                        Desayuno con panes de maíz tradicionales, tour por el mercado local y degustación de yogurt artesanal antes del retorno.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paquete Premium -->
+            <div class="paquete-box premium">
+                <h3>PAQUETE PREMIUM (5 Días / 6 Noches)</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong>Día 1: Bienvenida en Ingenio</strong>
+                        Llegada, guiado por el pueblo y visita detallada a la emblemática iglesia colonial.
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Día 2: Huayao Extremo & Conexión</strong>
+                        Trekking de día completo hacia la laguna del glaciar, alojamiento en casa de familias locales y clase de cocina tradicional.
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Día 3: Espiritualidad Andina</strong>
+                        Participación activa en una ceremonia tradicional de agradecimiento a la tierra y cena comunitaria.
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Día 4: Exploración Libre e Historias</strong>
+                        Día libre en Huayao con opción de cabalgata y observación astronómica andina durante la noche.
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Día 5: Ruta Ancestral en Chongos Alto</strong>
+                        Recorrido por pueblos antiguos, museos comunitarios y trekking hacia el espectacular mirador de los cóndores.
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Día 6: Despedida Tradicional</strong>
+                        Almuerzo de despedida con ensalada de quinua, espectáculo de música andina en vivo y entrega de artesanías locales como recuerdo.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="container">
+        <h2>¿Listo para vivir la experiencia?</h2>
+        <p class="subtitle">Déjanos tus datos y nos pondremos en contacto contigo para coordinar tu viaje.</p>
+        
+        <form action="#" method="POST">
+            <input type="text" placeholder="Tu Nombre Completo" required>
+            <input type="email" placeholder="Tu Correo Electrónico" required>
+            <input type="tel" placeholder="Número de WhatsApp" required>
+            <select style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 1rem; background: white;">
+                <option value="">Selecciona tu paquete de interés</option>
+                <option value="basico">Paquete Básico (2 Días / 3 Noches)</option>
+                <option value="premium">Paquete Premium (5 Días / 6 Noches)</option>
+            </select>
+            <textarea rows="4" placeholder="¿Tienes alguna solicitud especial o fecha estimada de viaje?" required></textarea>
+            <button type="submit" class="btn" style="border:none; cursor:pointer; width: 100%;">ENVIAR SOLICITUD</button>
+        </form>
+    </section>
+
+    <footer>
+        <p><strong>Vibra Andina</strong> - Andes Sostenibles | www.vibraandinajunin.com</p>
+        <p style="font-size: 0.85rem; color: #bdc3c7; margin-top: 10px;">&copy; 2026 Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
